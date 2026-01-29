@@ -1,0 +1,21 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+*_cache
+
+# Virtual environments
+.venv
+.netrc
+
+# Configuration files
+karton.ini
+karton.docker.ini
+extractors_cfg.py
+
+# Malware binaries
+samples/
+minio/

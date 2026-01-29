@@ -1,0 +1,54 @@
+[project]
+name = "karton-pdf-analyzer"
+version = "0.1.0"
+description = "Karton service to analyze PDF files using Quicksand"
+readme = "README.md"
+authors = [{ name = "Kevin Ziadeh" }]
+requires-python = ">=3.12"
+dependencies = [
+    "karton-core>=5.6.0",
+    "quicksand>=2.1.2",
+    "requests>=2.32.5",
+    "tldextract>=5.3.1",
+]
+classifiers = [ 
+    "Private :: Do not Upload",
+    "Operating System :: Unix",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "S603", # subprocess.check_output
+    "G004", # f-string log strings
+    "TRY003", # long strings outside exception class
+    "EM101", # strings in error raise
+    "D100", # missing docstring in public module
+    "D104", # missing docstring in public package
+    "D212", # multi-line docstring summary should start at the first line
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "N999"]
+
+[project.scripts]
+karton-pdf-analyzer = "src.pdf_analyzer:PDFAnalyzer.main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["."]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9.8",
+]
