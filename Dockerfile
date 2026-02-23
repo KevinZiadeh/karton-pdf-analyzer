@@ -20,8 +20,6 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* \
     && mkdir -p /var/lib/apt/lists/partial \
     && apt-get update -o Acquire::CompressionTypes::Order::=gz
 
-RUN apt-get install -y --no-install-recommends curl
-
 # ---------- Build stage ----------
 FROM base AS build
 
