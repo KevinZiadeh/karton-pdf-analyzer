@@ -37,7 +37,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 # Apply required fix to Karton package
 RUN sed -i \
-    "s/{bind\.identity:50} {bind\.service_version or \"-\"/{bind.identity:50} {bind.service_version or '-'}/g" \
+    "s/{bind\.identity:50} {bind\.service_version or \"-\"/{bind.identity:50} {bind.service_version or '-'/g" \
     /app/.venv/lib/python3.12/site-packages/karton/core/main.py
 
 # ---------- Final runtime stage ----------
